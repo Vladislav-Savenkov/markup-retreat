@@ -1,1 +1,43 @@
 /* Пиши стили тут */
+/* Пиши стили тут */
+
+/* Общие стили для формы рейтинга */
+#star-rating {
+  direction: rtl;
+  text-align: left;/* Перевернем порядок радио кнопок для лучшего UI */
+}
+
+#star-rating input[type="radio"] {
+  display: none; /* Скрываем радио кнопки */
+}
+
+#star-rating label {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0; /* Уберем место для текста */
+  color: #ccc; /* Цвет звезды по умолчанию */
+}
+
+#star-rating label:before {
+  content: "★";
+  font-size: 24px; /* Размер звезд */
+}
+
+/* Стили для наведения и выбора */
+#star-rating input[type="radio"]:hover ~ label:before,
+#star-rating input[type="radio"]:hover ~ input[type="radio"] + label:before,
+#star-rating label:hover ~ input[type="radio"] + label:before {
+  color: #fc0; /* Цвет звезд при наведении */
+}
+
+#star-rating input[type="radio"]:checked ~ label:before,
+#star-rating label:hover ~ input[type="radio"]:checked ~ label:before {
+  color: #f90; /* Цвет выбранной звезды */
+}
+
+/* Сброс стилей при наведении после выбранного элемента */
+#star-rating input[type="radio"]:checked ~ label:hover:before,
+#star-rating input[type="radio"]:checked ~ input[type="radio"] + label:hover:before,
+#star-rating label:hover ~ input[type="radio"]:checked ~ input[type="radio"] + label:hover:before {
+  color: #fc0;
+}
